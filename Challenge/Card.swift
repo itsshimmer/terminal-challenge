@@ -7,20 +7,26 @@
 
 import Foundation
 
-enum color {
+enum Color: String {
     case blue, yellow, green, red, any //any=wild
 }
 
-enum type {
+enum Type: String {
     case zero, one, two, three, four, five, six, seven, eight, nine, wild, reverse, skip, draw2, wildDraw4
 }
 
-class Card {
-    var type: type
-    var color: color
+class Card: CustomStringConvertible {
+    var description: String {
+        "type: \(type.rawValue)   color: \(color.rawValue)"
+    }
     
-    init(type: type, color: color) {
+    var type: Type
+    var color: Color
+    
+    init(type: Type, color: Color) {
         self.type = type
         self.color = color
     }
+    
+    
 }

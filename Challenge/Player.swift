@@ -21,7 +21,7 @@ class Player {
         var chosenCard: Card
         repeat{
             chosenCard = self.selectCard()
-        }while !Game.isCardValid(card: chosenCard)
+        }while !Game.isCardValid(card: chosenCard, card2: card)
         
         return chosenCard
     }

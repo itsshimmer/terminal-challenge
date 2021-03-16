@@ -83,7 +83,7 @@ class Game {
         return false
     }
     
-    static func isCardValid(card: Card) -> Bool{
-        return true//card.type == lastCardPlayed.type || card.color == lastCardPlayed.color
+    static func isCardValid(card: Card, card2: Card) -> Bool{
+        return card.type == card2.type || card.color == card2.color
     }
 }
