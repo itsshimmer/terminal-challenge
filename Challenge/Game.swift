@@ -36,21 +36,21 @@ class Game {
             print("Last card played: \(lastCardPlayed)")
             lastCardPlayed = currentPlayer.play(card: lastCardPlayed)
             switch lastCardPlayed.type {
-            case type.draw2:
+            case Type.draw2:
                 players.append(currentPlayer)
                 currentPlayer = players.remove(at: 0)
                 currentPlayer.hand.append(self.deck.draw())
                 currentPlayer.hand.append(self.deck.draw())
-            case type.skip:
+            case Type.skip:
                 players.append(currentPlayer)
                 currentPlayer = players.remove(at: 0)
                 players.append(currentPlayer)
                 currentPlayer = players.remove(at: 0)
-            case type.wild:
+            case Type.wild:
                 lastCardPlayed.color = currentPlayer.chooseColor()
                 players.append(currentPlayer)
                 currentPlayer = players.remove(at: 0)
-            case type.wildDraw4:
+            case Type.wildDraw4:
                 lastCardPlayed.color = currentPlayer.chooseColor()
                 players.append(currentPlayer)
                 currentPlayer = players.remove(at: 0)
@@ -58,7 +58,7 @@ class Game {
                 currentPlayer.hand.append(self.deck.draw())
                 currentPlayer.hand.append(self.deck.draw())
                 currentPlayer.hand.append(self.deck.draw())
-            case type.reverse:
+            case Type.reverse:
                 players.reverse()
                 players.append(currentPlayer)
                 currentPlayer = players.remove(at: 0)
@@ -83,7 +83,7 @@ class Game {
         return false
     }
     
-    static func isCardValid(card: Card, card2: Card) -> Bool{
-        return card.type == card2.type || card.color == card2.color
+    static func isCardValid(playerCard: Card, tableCard: Card) -> Bool{
+        return playerCard.type == tableCard.type || playerCard.color == tableCard.color || playerCard.color == Color.any //any = wild or wilddraw4
     }
 }

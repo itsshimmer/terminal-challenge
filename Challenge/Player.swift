@@ -21,7 +21,7 @@ class Player {
         var chosenCard: Card
         repeat{
             chosenCard = self.selectCard()
-        }while !Game.isCardValid(card: chosenCard, card2: card)
+        }while !Game.isCardValid(playerCard: chosenCard, tableCard: card)
         
         return chosenCard
     }
@@ -32,20 +32,21 @@ class Player {
         var chosenString: String
         
         repeat {
-            do{
-                chosenString = readLine()!
-                chosen = try Int(chosenString)!
+            chosenString = readLine()!
+            if let chosen = Int(chosenString) {
+                continue
             }
-            catch {
+            else {
                 print("You must input an Integer value!")
             }
+            
         } while chosen < 0 || chosen >= hand.count
         
         return self.hand.remove(at: chosen)
     }
     
-    func chooseColor() -> color {
-        
+    func chooseColor() -> Color {
+        return Color.blue
     }
     
 }
