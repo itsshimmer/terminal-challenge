@@ -14,6 +14,10 @@ func addPlayer(){
         players.append(Player(name: readLine()!))
     }
     if chosen==2 {
+        if players.count < 2 {
+            print("You can't play with less than 2 players 😢! Finishing the game...")
+            exit(0)
+        }
         stop=true
     }
 }
