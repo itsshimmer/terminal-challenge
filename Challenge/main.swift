@@ -43,7 +43,7 @@ if hour >= 5 && hour <= 12 {
     print("Good morning 🖼 dear player!")
 }
 else if hour >= 13 && hour <= 17 {
-    print("Good afternoon 🌞  dear player!")
+    print("Good afternoon 🌞 dear player!")
 }
 else {
     print("Good night 🌚🌝 dear player!")

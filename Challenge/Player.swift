@@ -64,6 +64,9 @@ class Player {
             chosenString = readLine()!
             if let chosenValid = Int(chosenString) {
                 chosen = chosenValid
+                if chosen == -5 {
+                    exit(0)
+                }
             }
             else {
                 print("You must input an Integer value!")
@@ -84,7 +87,7 @@ class Player {
             for i in 0...self.hand.count-1 {
                 print("[\(i)]: [\(self.hand[i])]",terminator: "     ")
             }
-            print("or \(hand.count) to draw a new card")
+            print("or \(hand.count) to draw a new card (you can also input -5 for quiting the game)")
             print("\n")
         }
     }
