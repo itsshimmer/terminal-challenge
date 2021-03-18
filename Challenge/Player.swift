@@ -31,7 +31,11 @@ class Player {
     }
     
     func selectCard() -> Card {
-        return self.hand.remove(at: intInput(message: "\(self.name) please select a card!", beginIndex: 0, endIndex: self.hand.count-1))
+        let chosenIndex: Int = intInput(message: "\(self.name) please select a card!", beginIndex: 0, endIndex: self.hand.count)
+        if chosenIndex <= self.hand.count-1{
+            return self.hand.remove(at: chosenIndex)
+        }
+        return Card(type: Type.none, color: Color.any)//fake card to tell class Game the player decided to draw a card
     }
     
     func chooseColor() -> Color {
@@ -68,9 +72,14 @@ class Player {
     }
     
     func printHand() {
+        print("Printing \(self.name)'s hand in 2 seconds (if you are not \(self.name) please don't look 😉)...")
+        sleep(1)
+        print("Printing \(self.name)'s hand in 1 second (if you are not \(self.name) please don't look 😉)... ")
+        sleep(1)
         for i in 0...self.hand.count-1 {
             print("index[\(i)]: [\(self.hand[i])]",terminator: "   ")
         }
+        print("or \(hand.count) to draw a new card")
         print("\n")
     }
     

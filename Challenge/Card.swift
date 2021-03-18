@@ -23,7 +23,7 @@ enum Color: String {
 }
 
 enum Type: String {
-    case zero, one, two, three, four, five, six, seven, eight, nine, wild, reverse, skip, draw2, wildDraw4
+    case zero, one, two, three, four, five, six, seven, eight, nine, wild, reverse, skip, draw2, wildDraw4, none
     
     var emojiSymbol: String {
         switch self {
@@ -42,6 +42,7 @@ enum Type: String {
             case .skip: return "🚫(skip)"
             case .draw2: return "➕2️⃣(+2)"
             case .wildDraw4: return "➕4️⃣(+4)"
+            case .none: return "none"//
         }
     }
 }
