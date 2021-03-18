@@ -4,7 +4,6 @@
 //
 //  Created by João Brentano on 16/03/21.
 //
-
 import Foundation
 
 func addPlayer(){
@@ -37,6 +36,19 @@ func intInput(message: String, beginIndex: Int, endIndex: Int) -> Int {
     } while !(chosen >= beginIndex && chosen <= endIndex)
     return chosen
 }
+
+print("Welcome to UNO Bairrista 😘!")
+let hour = Calendar.current.component(.hour, from: Date())
+if hour >= 5 && hour <= 12 {
+    print("Good morning 🖼 dear player!")
+}
+else if hour >= 13 && hour <= 17 {
+    print("Good afternoon 🌞  dear player!")
+}
+else {
+    print("Good night 🌚🌝 dear player!")
+}
+
 
 var stop: Bool = false
 var players: [Player] = [Player]()

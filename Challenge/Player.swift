@@ -82,7 +82,7 @@ class Player {
                 sleep(1)
             }
             for i in 0...self.hand.count-1 {
-                print("index[\(i)]: [\(self.hand[i])]",terminator: "   ")
+                print("[\(i)]: [\(self.hand[i])]",terminator: "     ")
             }
             print("or \(hand.count) to draw a new card")
             print("\n")

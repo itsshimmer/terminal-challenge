@@ -5,7 +5,6 @@
 //  Created by Lucas Dimer Justo on 16/03/21.
 //
 
-import Foundation
 
 enum Color: String {
     case blue, yellow, green, red, any //any=wild

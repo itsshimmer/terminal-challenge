@@ -5,7 +5,7 @@
 //  Created by Lucas Dimer Justo on 16/03/21.
 //
 
-import Foundation
+import AVFoundation
 
 class Game {
     var deck: Deck
@@ -63,6 +63,9 @@ class Game {
                         //next player drawing 2 cards
                         currentPlayer.hand.append(self.deck.draw())
                         currentPlayer.hand.append(self.deck.draw())
+                        //funny speech interaction
+                        funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1, rate: 0.5, delay: 0)
+                        funnySpeech(string: "I hate you, and want you to know that we will never never ever play together again!", pitch: 0.1, rate: 0.35, delay: 3)
                         //skiping the player who drawed 2 cards
                         players.append(currentPlayer)
                         currentPlayer = players.remove(at: 0)
@@ -70,6 +73,8 @@ class Game {
                         //assigning next player
                         players.append(currentPlayer)
                         currentPlayer = players.remove(at: 0)
+                        funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1, rate: 0.5, delay: 0)
+                        funnySpeech(string: "Why do you have to bully me?", pitch: 0.1, rate: 0.5, delay: 3)
                         //skipping next player by assigning a new one
                         players.append(currentPlayer)
                         currentPlayer = players.remove(at: 0)
@@ -90,6 +95,9 @@ class Game {
                         currentPlayer.hand.append(self.deck.draw())
                         currentPlayer.hand.append(self.deck.draw())
                         currentPlayer.hand.append(self.deck.draw())
+                        //funny speech interaction
+                        funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1, rate: 0.5, delay: 0)
+                        funnySpeech(string: "I hate you, and want you to know that we will never never ever play together again!", pitch: 0.1, rate: 0.35, delay: 3)
                         //skip the player who drawed 4 cards
                         players.append(currentPlayer)
                         currentPlayer = players.remove(at: 0)
@@ -135,5 +143,27 @@ class Game {
     
     static func isCardValid(playerCard: Card, tableCard: Card) -> Bool{
         return playerCard.type == tableCard.type || playerCard.color == tableCard.color || playerCard.color == Color.any //any = wild or wilddraw4
+    }
+    
+    func funnySpeech(string: String, pitch: Float, rate: Float, delay: UInt32){
+        let utterance = AVSpeechUtterance(string: string)
+
+        // Configure the utterance.
+        utterance.rate = rate
+        utterance.pitchMultiplier = pitch
+        utterance.postUtteranceDelay = 0.5
+        utterance.volume = 0.8
+
+        // Retrieve the British English voice.
+        let voice = AVSpeechSynthesisVoice(language: "en-US")
+
+        // Assign the voice to the utterance.
+        utterance.voice = voice
+        
+        // Create a speech synthesizer.
+        let synthesizer = AVSpeechSynthesizer()
+        sleep(delay)
+        // Tell the synthesizer to speak the utterance.
+        synthesizer.speak(utterance)
     }
 }

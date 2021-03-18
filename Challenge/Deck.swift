@@ -5,13 +5,20 @@
 //  Created by Lucas Dimer Justo on 16/03/21.
 //
 
-import Foundation
 
 class Deck {
     var cards: [Card]
     
     init (){
         cards = [Card]()
+        addCards()
+    }
+    
+    func shuffle(){
+        cards.shuffle()
+    }
+    
+    func addCards(){
         //25 blue cards
         cards.append(Card(type: Type.zero, color: Color.blue))
         cards.append(Card(type: Type.one, color: Color.blue))
@@ -133,12 +140,16 @@ class Deck {
         cards.append(Card(type: Type.wildDraw4, color: Color.any))
     }
     
-    func shuffle(){
-        cards.shuffle()
-    }
-    
     func draw() -> Card{
-        return cards.remove(at: 0)
+        if cards.count > 0 {
+            return cards.remove(at: 0)
+        }
+        else {
+            self.cards = [Card]()
+            addCards()
+            self.shuffle()
+            return cards.remove(at:0)
+        }
     }
     
     func drawFirstCard() -> Card {
