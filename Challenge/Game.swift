@@ -13,10 +13,12 @@ class Game {
     var lastCardPlayed: Card
     var currentPlayer: Player
     var winner: Player?
+    let delay: Bool
     
-    init(players: [Player]){
+    init(players: [Player], delay: Bool){
         self.deck = Deck()
         self.players = players
+        self.delay = delay
         
         self.deck.shuffle()
         self.players.shuffle()
@@ -32,10 +34,18 @@ class Game {
     }
     
     func play(){
-        print("The game will take 10 seconds to initialize, so you have time to read this and then know that we take 2 seconds before showing a player's hand, to give time for other players look away (because you shouldn't see each others hands)")
-        sleep(10)
+        if self.delay {
+            print("The game will take 10 seconds to initialize, so you have time to read this and then know that we take 2 seconds before showing a player's hand, to give time for other players look away (because you shouldn't see each others hands)")
+            sleep(10)
+        }
         while(!checkZeroCards()){
+            print("TABLE INFORMATIONS:")
+            for player in players{
+                print("\(player.name) has \(player.hand.count) cards;", terminator: "   ")
+            }
+            print()
             print("LAST CARD PLAYED: \(lastCardPlayed)")
+            print("----------------------------------------------------------------------------------------------------")
             let chosenCard: Card = currentPlayer.play(card: lastCardPlayed)
             if chosenCard.type == Type.none {
                 //if type is none, player decided to draw a card and pass its turn

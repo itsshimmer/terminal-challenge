@@ -11,7 +11,7 @@ func addPlayer(){
     let chosen: Int = intInput(message: "Do you want to add a new player ? 1- 👍(yes); 2- 👎(no)", beginIndex: 1, endIndex: 2)
     if chosen==1 {
         print("Choose the player's name: ")
-        players.append(Player(name: readLine()!))
+        players.append(Player(name: readLine()!, delay: playerDelay))
     }
     if chosen==2 {
         if players.count < 2 {
@@ -40,12 +40,29 @@ func intInput(message: String, beginIndex: Int, endIndex: Int) -> Int {
 
 var stop: Bool = false
 var players: [Player] = [Player]()
+let gameDelay: Bool
+let playerDelay: Bool
+if intInput(message: "Do you want to turn off the 10 seconds delay message? 1- 👍(yes); 2- 👎(no)", beginIndex: 1, endIndex: 2) == 1 {
+    gameDelay = false
+}
+else {
+    gameDelay = true
+}
+if intInput(message: "Do you want to turn off the 2 seconds delay before printing a player's hand? 1- 👍(yes); 2- 👎(no)", beginIndex: 1, endIndex: 2) == 1 {
+    playerDelay = false
+}
+else {
+    playerDelay = true
+}
+
+
+
 
 while !stop {
     addPlayer()
 }
 
-var game: Game = Game(players: players)
+var game: Game = Game(players: players, delay: gameDelay)
 
 game.play()
 

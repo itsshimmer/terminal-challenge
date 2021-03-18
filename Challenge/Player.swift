@@ -10,11 +10,13 @@ import Foundation
 class Player {
     var hand: [Card]
     let name: String
+    let delay: Bool
     var chosen: Int
-    init (name: String){
+    init (name: String, delay: Bool){
         self.hand = [Card]()
         self.name = name
         self.chosen = -1
+        self.delay = delay
     }
     
     func play(card: Card) -> Card {
@@ -72,15 +74,19 @@ class Player {
     }
     
     func printHand() {
-        print("Printing \(self.name)'s hand in 2 seconds (if you are not \(self.name) please don't look 😉)...")
-        sleep(1)
-        print("Printing \(self.name)'s hand in 1 second (if you are not \(self.name) please don't look 😉)... ")
-        sleep(1)
-        for i in 0...self.hand.count-1 {
-            print("index[\(i)]: [\(self.hand[i])]",terminator: "   ")
+        if self.hand.count>0{
+            if self.delay {
+                print("Printing \(self.name)'s hand in 2 seconds (if you are not \(self.name) please don't look 😉)...")
+                sleep(1)
+                print("Printing \(self.name)'s hand in 1 second (if you are not \(self.name) please don't look 😉)... ")
+                sleep(1)
+            }
+            for i in 0...self.hand.count-1 {
+                print("index[\(i)]: [\(self.hand[i])]",terminator: "   ")
+            }
+            print("or \(hand.count) to draw a new card")
+            print("\n")
         }
-        print("or \(hand.count) to draw a new card")
-        print("\n")
     }
     
 }
