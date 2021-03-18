@@ -65,7 +65,7 @@ class Game {
                         currentPlayer.hand.append(self.deck.draw())
                         //funny speech interaction
                         funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1, rate: 0.5, delay: 0)
-                        funnySpeech(string: "I hate you, and want you to know that we will never never ever play together again!", pitch: 0.1, rate: 0.35, delay: 3)
+                        funnySpeech(string: "I hate you, and want you to know that we will never never ever play together again!", pitch: 0.1, rate: 0.3, delay: 3)
                         //skiping the player who drawed 2 cards
                         players.append(currentPlayer)
                         currentPlayer = players.remove(at: 0)
@@ -97,7 +97,7 @@ class Game {
                         currentPlayer.hand.append(self.deck.draw())
                         //funny speech interaction
                         funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1, rate: 0.5, delay: 0)
-                        funnySpeech(string: "I hate you, and want you to know that we will never never ever play together again!", pitch: 0.1, rate: 0.35, delay: 3)
+                        funnySpeech(string: "I hate you, and want you to know that we will never never ever play together again!", pitch: 0.1, rate: 0.3, delay: 3)
                         //skip the player who drawed 4 cards
                         players.append(currentPlayer)
                         currentPlayer = players.remove(at: 0)
