@@ -64,8 +64,8 @@ class Game {
                         currentPlayer.hand.append(self.deck.draw())
                         currentPlayer.hand.append(self.deck.draw())
                         //funny speech interaction
-                        funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1, rate: 0.5, delay: 0)
-                        funnySpeech(string: "I hate you, and want you to know that we will never never ever play together again!", pitch: 0.1, rate: 0.3, delay: 3)
+                        funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1.2, rate: 0.5, delay: 0)
+                        funnySpeech(string: "I hate you, and want you to know that we will never never ever play together again!", pitch: 0.1, rate: 0.35, delay: 3)
                         //skiping the player who drawed 2 cards
                         players.append(currentPlayer)
                         currentPlayer = players.remove(at: 0)
@@ -73,7 +73,7 @@ class Game {
                         //assigning next player
                         players.append(currentPlayer)
                         currentPlayer = players.remove(at: 0)
-                        funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1, rate: 0.5, delay: 0)
+                        funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1.2, rate: 0.5, delay: 0)
                         funnySpeech(string: "Why do you have to bully me?", pitch: 0.1, rate: 0.5, delay: 3)
                         //skipping next player by assigning a new one
                         players.append(currentPlayer)
@@ -96,8 +96,9 @@ class Game {
                         currentPlayer.hand.append(self.deck.draw())
                         currentPlayer.hand.append(self.deck.draw())
                         //funny speech interaction
-                        funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1, rate: 0.5, delay: 0)
-                        funnySpeech(string: "I hate you, and want you to know that we will never never ever play together again!", pitch: 0.1, rate: 0.3, delay: 3)
+                        funnySpeech(string: "Hey \(players[players.count-1].name) you received a message from \(currentPlayer.name)", pitch: 1.2, rate: 0.5, delay: 0)
+                        funnySpeech(string: "Congratulations \(players[players.count-1].name)! You reached the peak!", pitch: 0.1, rate: 0.35, delay: 3)
+                        funnySpeech(string: "The great peak of having 0 friends...", pitch: 0.1, rate: 0.35, delay: 4)
                         //skip the player who drawed 4 cards
                         players.append(currentPlayer)
                         currentPlayer = players.remove(at: 0)
