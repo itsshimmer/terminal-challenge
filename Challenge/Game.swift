@@ -125,8 +125,7 @@ class Game {
             print("----------------------------------------------------------------------------------------------------")
             print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         }
-        funnySpeech(string: "Congratulations \(winner!.name), you won the match!", pitch: 3.0, rate: 0.5, delay: 5)
-        print("Congratulations \(winner!.name), you won!")
+        print("Congratulations \(winner!.name), you won the match!")
     }
     func checkZeroCards() -> Bool {
         for player in players {
