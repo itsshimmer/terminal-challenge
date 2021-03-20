@@ -125,13 +125,9 @@ class Game {
             print("----------------------------------------------------------------------------------------------------")
             print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         }
-        for player in self.players {
-            if player.hand.count==0 {
-                print("Congratulations \(player.name), you won!")
-            }
-        }
+        funnySpeech(string: "Congratulations \(winner!.name), you won the match!", pitch: 3.0, rate: 0.5, delay: 2)
+        print("Congratulations \(winner!.name), you won!")
     }
-    
     func checkZeroCards() -> Bool {
         for player in players {
             if player.hand.count==0 {
